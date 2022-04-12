@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ivan/TE_approximation/utils/make_grid.cpp
+make_grid.h
+/home/ivan/TE_approximation/utils/make_grid.h
+gmsh.h
+/home/ivan/TE_approximation/utils/gmsh.h
+vector
+-
+string
+-
+iostream
+-
+
+/home/ivan/TE_approximation/utils/make_grid.h
+vector
+-
+string
+-
+utils.h
+/home/ivan/TE_approximation/utils/utils.h
+
+/home/ivan/TE_approximation/utils/utils.h
+

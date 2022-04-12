@@ -1,0 +1,2 @@
+/usr/bin/ar qc liblib.a  CMakeFiles/lib.dir/make_grid.cpp.o CMakeFiles/lib.dir/test_boost.cpp.o
+/usr/bin/ranlib liblib.a
