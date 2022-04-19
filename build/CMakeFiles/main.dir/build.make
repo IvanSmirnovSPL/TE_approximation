@@ -70,29 +70,29 @@ CMakeFiles/main.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ivan/TE_approximation/main.cpp -o CMakeFiles/main.dir/main.cpp.s
 
-CMakeFiles/main.dir/test_vtu.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/test_vtu.cpp.o: ../test_vtu.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ivan/TE_approximation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/test_vtu.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/test_vtu.cpp.o -c /home/ivan/TE_approximation/test_vtu.cpp
+CMakeFiles/main.dir/utils/make_vtu.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/utils/make_vtu.cpp.o: ../utils/make_vtu.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ivan/TE_approximation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/utils/make_vtu.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/utils/make_vtu.cpp.o -c /home/ivan/TE_approximation/utils/make_vtu.cpp
 
-CMakeFiles/main.dir/test_vtu.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/test_vtu.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ivan/TE_approximation/test_vtu.cpp > CMakeFiles/main.dir/test_vtu.cpp.i
+CMakeFiles/main.dir/utils/make_vtu.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/utils/make_vtu.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ivan/TE_approximation/utils/make_vtu.cpp > CMakeFiles/main.dir/utils/make_vtu.cpp.i
 
-CMakeFiles/main.dir/test_vtu.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/test_vtu.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ivan/TE_approximation/test_vtu.cpp -o CMakeFiles/main.dir/test_vtu.cpp.s
+CMakeFiles/main.dir/utils/make_vtu.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/utils/make_vtu.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ivan/TE_approximation/utils/make_vtu.cpp -o CMakeFiles/main.dir/utils/make_vtu.cpp.s
 
 # Object files for target main
 main_OBJECTS = \
 "CMakeFiles/main.dir/main.cpp.o" \
-"CMakeFiles/main.dir/test_vtu.cpp.o"
+"CMakeFiles/main.dir/utils/make_vtu.cpp.o"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
 
 main: CMakeFiles/main.dir/main.cpp.o
-main: CMakeFiles/main.dir/test_vtu.cpp.o
+main: CMakeFiles/main.dir/utils/make_vtu.cpp.o
 main: CMakeFiles/main.dir/build.make
 main: utils/liblib.a
 main: /home/ivan/gmsh-git-Linux64-sdk/lib/libgmsh.so

@@ -28,7 +28,7 @@ void get_grid(std::string name, double scale, std::vector <Point>& rez)
   gmsh::option::setNumber("Mesh.MeshSizeMax", scale);
 
   gmsh::model::mesh::generate(2);
-  gmsh::write("../" + name + ".msh");
+  gmsh::write(name + ".msh");
 
   std::vector <std::size_t> nodeTags; std::vector <double> coord, parametricCoord;
 

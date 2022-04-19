@@ -158,6 +158,87 @@ lib/fast:
 	cd /home/ivan/TE_approximation/build && $(MAKE) -f utils/CMakeFiles/lib.dir/build.make utils/CMakeFiles/lib.dir/build
 .PHONY : lib/fast
 
+approximation.o: approximation.cpp.o
+
+.PHONY : approximation.o
+
+# target to build an object file
+approximation.cpp.o:
+	cd /home/ivan/TE_approximation/build && $(MAKE) -f utils/CMakeFiles/lib.dir/build.make utils/CMakeFiles/lib.dir/approximation.cpp.o
+.PHONY : approximation.cpp.o
+
+approximation.i: approximation.cpp.i
+
+.PHONY : approximation.i
+
+# target to preprocess a source file
+approximation.cpp.i:
+	cd /home/ivan/TE_approximation/build && $(MAKE) -f utils/CMakeFiles/lib.dir/build.make utils/CMakeFiles/lib.dir/approximation.cpp.i
+.PHONY : approximation.cpp.i
+
+approximation.s: approximation.cpp.s
+
+.PHONY : approximation.s
+
+# target to generate assembly for a file
+approximation.cpp.s:
+	cd /home/ivan/TE_approximation/build && $(MAKE) -f utils/CMakeFiles/lib.dir/build.make utils/CMakeFiles/lib.dir/approximation.cpp.s
+.PHONY : approximation.cpp.s
+
+calculate.o: calculate.cpp.o
+
+.PHONY : calculate.o
+
+# target to build an object file
+calculate.cpp.o:
+	cd /home/ivan/TE_approximation/build && $(MAKE) -f utils/CMakeFiles/lib.dir/build.make utils/CMakeFiles/lib.dir/calculate.cpp.o
+.PHONY : calculate.cpp.o
+
+calculate.i: calculate.cpp.i
+
+.PHONY : calculate.i
+
+# target to preprocess a source file
+calculate.cpp.i:
+	cd /home/ivan/TE_approximation/build && $(MAKE) -f utils/CMakeFiles/lib.dir/build.make utils/CMakeFiles/lib.dir/calculate.cpp.i
+.PHONY : calculate.cpp.i
+
+calculate.s: calculate.cpp.s
+
+.PHONY : calculate.s
+
+# target to generate assembly for a file
+calculate.cpp.s:
+	cd /home/ivan/TE_approximation/build && $(MAKE) -f utils/CMakeFiles/lib.dir/build.make utils/CMakeFiles/lib.dir/calculate.cpp.s
+.PHONY : calculate.cpp.s
+
+initial_conditions.o: initial_conditions.cpp.o
+
+.PHONY : initial_conditions.o
+
+# target to build an object file
+initial_conditions.cpp.o:
+	cd /home/ivan/TE_approximation/build && $(MAKE) -f utils/CMakeFiles/lib.dir/build.make utils/CMakeFiles/lib.dir/initial_conditions.cpp.o
+.PHONY : initial_conditions.cpp.o
+
+initial_conditions.i: initial_conditions.cpp.i
+
+.PHONY : initial_conditions.i
+
+# target to preprocess a source file
+initial_conditions.cpp.i:
+	cd /home/ivan/TE_approximation/build && $(MAKE) -f utils/CMakeFiles/lib.dir/build.make utils/CMakeFiles/lib.dir/initial_conditions.cpp.i
+.PHONY : initial_conditions.cpp.i
+
+initial_conditions.s: initial_conditions.cpp.s
+
+.PHONY : initial_conditions.s
+
+# target to generate assembly for a file
+initial_conditions.cpp.s:
+	cd /home/ivan/TE_approximation/build && $(MAKE) -f utils/CMakeFiles/lib.dir/build.make utils/CMakeFiles/lib.dir/initial_conditions.cpp.s
+.PHONY : initial_conditions.cpp.s
+
 make_grid.o: make_grid.cpp.o
 
 .PHONY : make_grid.o
@@ -212,6 +293,33 @@ test_boost.cpp.s:
 	cd /home/ivan/TE_approximation/build && $(MAKE) -f utils/CMakeFiles/lib.dir/build.make utils/CMakeFiles/lib.dir/test_boost.cpp.s
 .PHONY : test_boost.cpp.s
 
+utils.o: utils.cpp.o
+
+.PHONY : utils.o
+
+# target to build an object file
+utils.cpp.o:
+	cd /home/ivan/TE_approximation/build && $(MAKE) -f utils/CMakeFiles/lib.dir/build.make utils/CMakeFiles/lib.dir/utils.cpp.o
+.PHONY : utils.cpp.o
+
+utils.i: utils.cpp.i
+
+.PHONY : utils.i
+
+# target to preprocess a source file
+utils.cpp.i:
+	cd /home/ivan/TE_approximation/build && $(MAKE) -f utils/CMakeFiles/lib.dir/build.make utils/CMakeFiles/lib.dir/utils.cpp.i
+.PHONY : utils.cpp.i
+
+utils.s: utils.cpp.s
+
+.PHONY : utils.s
+
+# target to generate assembly for a file
+utils.cpp.s:
+	cd /home/ivan/TE_approximation/build && $(MAKE) -f utils/CMakeFiles/lib.dir/build.make utils/CMakeFiles/lib.dir/utils.cpp.s
+.PHONY : utils.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -224,12 +332,24 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... package"
 	@echo "... lib"
+	@echo "... approximation.o"
+	@echo "... approximation.i"
+	@echo "... approximation.s"
+	@echo "... calculate.o"
+	@echo "... calculate.i"
+	@echo "... calculate.s"
+	@echo "... initial_conditions.o"
+	@echo "... initial_conditions.i"
+	@echo "... initial_conditions.s"
 	@echo "... make_grid.o"
 	@echo "... make_grid.i"
 	@echo "... make_grid.s"
 	@echo "... test_boost.o"
 	@echo "... test_boost.i"
 	@echo "... test_boost.s"
+	@echo "... utils.o"
+	@echo "... utils.i"
+	@echo "... utils.s"
 .PHONY : help
 
 

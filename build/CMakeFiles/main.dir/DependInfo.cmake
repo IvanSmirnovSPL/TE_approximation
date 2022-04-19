@@ -5,7 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/ivan/TE_approximation/main.cpp" "/home/ivan/TE_approximation/build/CMakeFiles/main.dir/main.cpp.o"
-  "/home/ivan/TE_approximation/test_vtu.cpp" "/home/ivan/TE_approximation/build/CMakeFiles/main.dir/test_vtu.cpp.o"
+  "/home/ivan/TE_approximation/utils/make_vtu.cpp" "/home/ivan/TE_approximation/build/CMakeFiles/main.dir/utils/make_vtu.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

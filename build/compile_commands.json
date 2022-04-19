@@ -1,22 +1,42 @@
 [
 {
   "directory": "/home/ivan/TE_approximation/build",
-  "command": "/usr/bin/c++  -DBOOST_ALL_NO_LIB -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -Dkiss_fft_scalar=double -I/home/ivan/TE_approximation/utils -isystem /home/ivan/gmsh-git-Linux64-sdk/include -isystem /usr/local/include/vtk-9.1 -isystem /usr/local/include/vtk-9.1/vtkfreetype/include  -std=c++14 -g   -o CMakeFiles/main.dir/main.cpp.o -c /home/ivan/TE_approximation/main.cpp",
+  "command": "/usr/bin/c++  -DBOOST_ALL_NO_LIB -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -Dkiss_fft_scalar=double -I/home/ivan/TE_approximation/utils -isystem /home/ivan/gmsh-git-Linux64-sdk/include -isystem /usr/local/include/vtk-9.1 -isystem /usr/local/include/vtk-9.1/vtkfreetype/include  -std=c++17 -g   -o CMakeFiles/main.dir/main.cpp.o -c /home/ivan/TE_approximation/main.cpp",
   "file": "/home/ivan/TE_approximation/main.cpp"
 },
 {
   "directory": "/home/ivan/TE_approximation/build",
-  "command": "/usr/bin/c++  -DBOOST_ALL_NO_LIB -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -Dkiss_fft_scalar=double -I/home/ivan/TE_approximation/utils -isystem /home/ivan/gmsh-git-Linux64-sdk/include -isystem /usr/local/include/vtk-9.1 -isystem /usr/local/include/vtk-9.1/vtkfreetype/include  -std=c++14 -g   -o CMakeFiles/main.dir/test_vtu.cpp.o -c /home/ivan/TE_approximation/test_vtu.cpp",
-  "file": "/home/ivan/TE_approximation/test_vtu.cpp"
+  "command": "/usr/bin/c++  -DBOOST_ALL_NO_LIB -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -Dkiss_fft_scalar=double -I/home/ivan/TE_approximation/utils -isystem /home/ivan/gmsh-git-Linux64-sdk/include -isystem /usr/local/include/vtk-9.1 -isystem /usr/local/include/vtk-9.1/vtkfreetype/include  -std=c++17 -g   -o CMakeFiles/main.dir/utils/make_vtu.cpp.o -c /home/ivan/TE_approximation/utils/make_vtu.cpp",
+  "file": "/home/ivan/TE_approximation/utils/make_vtu.cpp"
 },
 {
   "directory": "/home/ivan/TE_approximation/build/utils",
-  "command": "/usr/bin/c++   -I/home/ivan/TE_approximation/utils  -std=c++14 -g   -o CMakeFiles/lib.dir/make_grid.cpp.o -c /home/ivan/TE_approximation/utils/make_grid.cpp",
+  "command": "/usr/bin/c++   -I/home/ivan/TE_approximation/utils  -std=c++17 -g   -o CMakeFiles/lib.dir/utils.cpp.o -c /home/ivan/TE_approximation/utils/utils.cpp",
+  "file": "/home/ivan/TE_approximation/utils/utils.cpp"
+},
+{
+  "directory": "/home/ivan/TE_approximation/build/utils",
+  "command": "/usr/bin/c++   -I/home/ivan/TE_approximation/utils  -std=c++17 -g   -o CMakeFiles/lib.dir/make_grid.cpp.o -c /home/ivan/TE_approximation/utils/make_grid.cpp",
   "file": "/home/ivan/TE_approximation/utils/make_grid.cpp"
 },
 {
   "directory": "/home/ivan/TE_approximation/build/utils",
-  "command": "/usr/bin/c++   -I/home/ivan/TE_approximation/utils  -std=c++14 -g   -o CMakeFiles/lib.dir/test_boost.cpp.o -c /home/ivan/TE_approximation/utils/test_boost.cpp",
+  "command": "/usr/bin/c++   -I/home/ivan/TE_approximation/utils  -std=c++17 -g   -o CMakeFiles/lib.dir/test_boost.cpp.o -c /home/ivan/TE_approximation/utils/test_boost.cpp",
   "file": "/home/ivan/TE_approximation/utils/test_boost.cpp"
+},
+{
+  "directory": "/home/ivan/TE_approximation/build/utils",
+  "command": "/usr/bin/c++   -I/home/ivan/TE_approximation/utils  -std=c++17 -g   -o CMakeFiles/lib.dir/initial_conditions.cpp.o -c /home/ivan/TE_approximation/utils/initial_conditions.cpp",
+  "file": "/home/ivan/TE_approximation/utils/initial_conditions.cpp"
+},
+{
+  "directory": "/home/ivan/TE_approximation/build/utils",
+  "command": "/usr/bin/c++   -I/home/ivan/TE_approximation/utils  -std=c++17 -g   -o CMakeFiles/lib.dir/calculate.cpp.o -c /home/ivan/TE_approximation/utils/calculate.cpp",
+  "file": "/home/ivan/TE_approximation/utils/calculate.cpp"
+},
+{
+  "directory": "/home/ivan/TE_approximation/build/utils",
+  "command": "/usr/bin/c++   -I/home/ivan/TE_approximation/utils  -std=c++17 -g   -o CMakeFiles/lib.dir/approximation.cpp.o -c /home/ivan/TE_approximation/utils/approximation.cpp",
+  "file": "/home/ivan/TE_approximation/utils/approximation.cpp"
 }
 ]
