@@ -4,26 +4,42 @@
 #include <iostream>
 #include "./utils/test_boost.h"
 #include "test_vtu.h"
+#include <string>
+#include <algorithm>
+#include "./utils/initial_conditions.h"
+#include <cstdlib>
+#include<fstream>
+#include "./utils/calculate.h"
 
-
-
+std::vector<std::string> figures{"wave", "cone", "cube", "fig_1", "fig_2", "fig_3", "fig_4"};
+int grids_num = 1;
+std::vector <double> grid_scales{0.2, 0.1, 0.05, 0.025, 0.0125, 0.00625};
+double lamb_x = -2, lamb_y = 5; double Time = 1; int N = 51;
 
 int main(int argc, char **argv)
 {
-    std::vector <Point> nodes;
-    get_grid("grid_1", 1, nodes);
+    std::system("rm -r ../rez && mkdir ../rez"); /*make rez directory*/
+    std::system("mkdir ../rez/meshes");          /*make meshes directory*/
 
-    for (auto a: nodes)
+    std::vector<std::vector<Point>> grid_dots(grids_num); /*make grids*/
+    for (int i = 0; i < grids_num; i++)
     {
-        std::cout<<a.x<<" "<<a.y<<std::endl;
+        get_grid("../rez/meshes/grid" + std::to_string(i + 1), grid_scales[i], grid_dots[i]);
     }
 
-    test_boost();
-
-    test_vtu();
-
-
-
-
+    for (int figure = 0; figure < 1 /*figures.size()*/; figure++)
+    {
+        double (*F_initial)(Point) = NULL;
+        F_initial = get(figures[figure]); /*get F(x, y) function*/
+        std::string figure_dir = "mkdir ../rez/" + figures[figure];
+        std::system(figure_dir.c_str());/*make directory for figure*/
+        for (int i = 0; i < grids_num; i++)
+        {
+            std::string grid_dir = "mkdir ../rez/" + figures[figure] + "/grid" + std::to_string(i + 1);
+            std::system(grid_dir.c_str());/*make directory for grid*/
+            std::string path = "../rez/" + figures[figure] + "/grid" + std::to_string(i + 1) + "/";
+            calculate_grid(get(figures[figure]), grid_dots[i], lamb_x, lamb_y, Time, N, path);
+        }
+    }
     return 0;
 }
