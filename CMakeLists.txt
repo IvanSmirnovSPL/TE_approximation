@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 3.0.0)
 set(CMAKE_CXX_FLAGS "-std=c++17")
-
 project(TE VERSION 0.1.0)
 
 find_package(VTK COMPONENTS 
@@ -46,8 +45,10 @@ set_target_properties(gmsh PROPERTIES
 )
 set(GMSH_LIBRARY gmsh)
 
+
 add_subdirectory(utils)
-target_link_libraries(main lib ${GMSH_LIBRARY} ${VTK_LIBRARIES} ${Boost_LIBRARIES})
+target_link_libraries(main lib ${GMSH_LIBRARY} ${VTK_LIBRARIES} ${Boost_LIBRARIES} ${Eigen_LIBRARIES})
+
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

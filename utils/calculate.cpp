@@ -28,13 +28,13 @@ class KDTree
 
 void make_values(KDTree kdtree, std::vector <Point> grid,
  double(*F)(Point), double tau, double lamb_x, double lamb_y,
-  std::map <std::string, double> *time_lay)
+  std::map <std::string, double> &time_lay)
 {
     double (*F_initial)(Point) = NULL;
     F_initial = F; /*get F(x, y) function*/
     
     std::map <std::string, double> time_lay_prev, time_lay_cur;
-    time_lay_prev = *time_lay;
+    time_lay_prev = time_lay;
     for (int j = 0; j < 2; j++)
     {
         
@@ -48,13 +48,13 @@ void make_values(KDTree kdtree, std::vector <Point> grid,
             kdtree.find_k_nearest(Target, 10, &K_nearest);
             for (auto P: K_nearest){Values_k_nearest.push_back(time_lay_prev[Point2string(P)]);}
             double value;
-            value = time_lay->at(Point2string(P));
-            //value = make_value(K_nearest, Values_k_nearest, Target, &value);
+            //value = time_lay->at(Point2string(P));
+            make_value(K_nearest, Values_k_nearest, Target, value);
             time_lay_cur[Point2string(P)] = value;
         }
         time_lay_prev = time_lay_cur;
     }
-    *time_lay = time_lay_cur;
+    time_lay = time_lay_cur;
 }
 
 void calculate_grid(double(*F)(Point), std::vector <Point> grid,
@@ -74,7 +74,7 @@ void calculate_grid(double(*F)(Point), std::vector <Point> grid,
         {
             for(auto P: grid){time_lay[Point2string(P)] = F_initial(P);}
         }
-        make_values(kdtree, grid, F, tau, lamb_x, lamb_y, &time_lay);
+        make_values(kdtree, grid, F, tau, lamb_x, lamb_y, time_lay);
         save_vtu(name + "state_" + std::to_string(n) + ".vtu", grid, time_lay);
     }
     

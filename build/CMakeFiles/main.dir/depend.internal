@@ -3,11 +3,9 @@
 
 CMakeFiles/main.dir/main.cpp.o
  /home/ivan/TE_approximation/main.cpp
- /home/ivan/TE_approximation/test_vtu.h
  /home/ivan/TE_approximation/utils/calculate.h
  /home/ivan/TE_approximation/utils/initial_conditions.h
  /home/ivan/TE_approximation/utils/make_grid.h
- /home/ivan/TE_approximation/utils/test_boost.h
  /home/ivan/TE_approximation/utils/utils.h
 CMakeFiles/main.dir/utils/make_vtu.cpp.o
  /home/ivan/TE_approximation/utils/make_vtu.cpp

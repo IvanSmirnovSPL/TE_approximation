@@ -266,33 +266,6 @@ make_grid.cpp.s:
 	cd /home/ivan/TE_approximation/build && $(MAKE) -f utils/CMakeFiles/lib.dir/build.make utils/CMakeFiles/lib.dir/make_grid.cpp.s
 .PHONY : make_grid.cpp.s
 
-test_boost.o: test_boost.cpp.o
-
-.PHONY : test_boost.o
-
-# target to build an object file
-test_boost.cpp.o:
-	cd /home/ivan/TE_approximation/build && $(MAKE) -f utils/CMakeFiles/lib.dir/build.make utils/CMakeFiles/lib.dir/test_boost.cpp.o
-.PHONY : test_boost.cpp.o
-
-test_boost.i: test_boost.cpp.i
-
-.PHONY : test_boost.i
-
-# target to preprocess a source file
-test_boost.cpp.i:
-	cd /home/ivan/TE_approximation/build && $(MAKE) -f utils/CMakeFiles/lib.dir/build.make utils/CMakeFiles/lib.dir/test_boost.cpp.i
-.PHONY : test_boost.cpp.i
-
-test_boost.s: test_boost.cpp.s
-
-.PHONY : test_boost.s
-
-# target to generate assembly for a file
-test_boost.cpp.s:
-	cd /home/ivan/TE_approximation/build && $(MAKE) -f utils/CMakeFiles/lib.dir/build.make utils/CMakeFiles/lib.dir/test_boost.cpp.s
-.PHONY : test_boost.cpp.s
-
 utils.o: utils.cpp.o
 
 .PHONY : utils.o
@@ -344,9 +317,6 @@ help:
 	@echo "... make_grid.o"
 	@echo "... make_grid.i"
 	@echo "... make_grid.s"
-	@echo "... test_boost.o"
-	@echo "... test_boost.i"
-	@echo "... test_boost.s"
 	@echo "... utils.o"
 	@echo "... utils.i"
 	@echo "... utils.s"

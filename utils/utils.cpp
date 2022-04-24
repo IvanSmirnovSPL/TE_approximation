@@ -1,5 +1,6 @@
 #include "utils.h"
 
+
 Point point2Point(point p)
 {
     Point P;
@@ -35,5 +36,50 @@ void calculate_tau(double Time, int N, double *tau)
     else
     {
          *tau = 0.;
+    }
+}
+
+
+void vector2VectorXd(std::vector <double> v, VectorXd &V)
+{
+    V.resize(v.size());
+    for (int i = 0; i < v.size(); i++)
+    {
+        V(i) = v[i];
+    }
+}
+
+void VectorXd2vector(VectorXd V, std::vector <double> &v)
+{
+    v.resize(V.size());
+    for (int i = 0; i < V.size(); i++)
+    {
+        v[i] = V(i);
+    }
+}
+
+
+void matrix2MatrixXd(std::vector<std::vector <double>> m, MatrixXd &M)
+{
+    M.resize(m.size(), m.size());
+    for (int i = 0; i < m.size(); i++)
+    {
+        for (int j = 0; j < m.size(); j++)
+        {
+            M(i, j) = m[i][j];
+        }
+    }
+}
+
+void MatrixXd2matrix(MatrixXd &M, std::vector<std::vector <double>> &m)
+{
+    m.resize(M.rows()); auto cols = M.cols();
+    for (int i = 0; i < M.rows(); i++)
+    {
+        m[i].resize(cols);
+        for (int j = 0; j < M.cols(); j++)
+        {
+            m[i][j] = M(i, j);
+        }
     }
 }

@@ -21,11 +21,6 @@
 },
 {
   "directory": "/home/ivan/TE_approximation/build/utils",
-  "command": "/usr/bin/c++   -I/home/ivan/TE_approximation/utils  -std=c++17 -g   -o CMakeFiles/lib.dir/test_boost.cpp.o -c /home/ivan/TE_approximation/utils/test_boost.cpp",
-  "file": "/home/ivan/TE_approximation/utils/test_boost.cpp"
-},
-{
-  "directory": "/home/ivan/TE_approximation/build/utils",
   "command": "/usr/bin/c++   -I/home/ivan/TE_approximation/utils  -std=c++17 -g   -o CMakeFiles/lib.dir/initial_conditions.cpp.o -c /home/ivan/TE_approximation/utils/initial_conditions.cpp",
   "file": "/home/ivan/TE_approximation/utils/initial_conditions.cpp"
 },

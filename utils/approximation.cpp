@@ -1,28 +1,16 @@
 #include "approximation.h"
 #include "utils.h"
 
-#include <boost/geometry.hpp>
-#include <boost/geometry/geometries/point.hpp>
-#include <boost/geometry/index/rtree.hpp>
 
 // to store queries results
 #include <vector>
 
-// just for output
-#include <iostream>
-#include <boost/foreach.hpp>
 
 #include <algorithm>
 #include <string>
 
-#include "boost/numeric/ublas/matrix.hpp"
-#include "boost/numeric/ublas/vector.hpp"
-#include <boost/numeric/ublas/io.hpp>
-#include <boost/numeric/ublas/lu.hpp>
-#include <boost/numeric/ublas/triangular.hpp>
-#include <boost/numeric/ublas/operation.hpp>
 
-namespace bnu = boost::numeric::ublas;
+
 
 auto comb(int N, int K)
 {
@@ -52,61 +40,100 @@ auto comb(int N, int K)
     return result;
 }
 
+void make_frame(std::vector <Point> Points, double &k_x, double &k_y, Point &Center)
+{
+    std::vector <double> x, y;
+    for (auto P: Points){x.push_back(P.x); y.push_back(P.y);}
+    std::sort(x.begin(), x.end()); std::sort(y.begin(), y.end());
+    k_x = (x.back() - x.at(0)) > 0 ? (x.back() - x.at(0)) : 1e-6;
+    k_y = (y.back() - y.at(0)) > 0 ? (y.back() - y.at(0)) : 1e-6;
+    Center.x = x.at(0);
+    Center.y = y.at(0);   
+}
+
 void solve_SLAE(std::vector<std::vector <double>> A_,
- std::vector <double> b_, std::vector <double> *x_)
+ std::vector <double> b_, std::vector <double> &x_)
  {
-    bnu::vector<double> b(b_.size());
-    for (int i = 0; i< b_.size(); i++){b(i) = b_[i];}
-    
-    bnu::matrix<double> A(A_.size(), A_.size());
-    for (int i = 0; i < A_.size(); i++)
+
+    VectorXd b; vector2VectorXd(b_, b);
+    MatrixXd A; matrix2MatrixXd(A_, A); 
+    VectorXd x = A.colPivHouseholderQr().solve(b);
+    VectorXd2vector(x, x_);
+ }
+
+void make_A_b(std::vector <Point> P, std::vector <double> v,
+     std::vector <std::vector <double>> &A, std::vector <double> &b)
+{
+
+    /*for (int i = 0; i < 6; i++)
     {
-        for (int j = 0; j < A_.size(); j++)
-        {
-            A(i, j) = A_[i][j];
-        }
+        std::vector <double> tmp{pow(P[i].x, 2), pow(P[i].y, 2),
+             P[i].x * P[i].y, P[i].x, P[i].y, 1};
+        A.push_back(tmp);
+        b.push_back(v[i]);
+    }*/
+    for (int i = 0; i < 3; i++)
+    {
+        std::vector <double> tmp{P[i].x, P[i].y, 1};
+        A.push_back(tmp);
+        b.push_back(v[i]);
     }
 
-    bnu::matrix<double> Ainv = bnu::identity_matrix<float>(A.size1());
-    bnu::permutation_matrix<size_t> pm(A.size1());
-    bnu::lu_factorize(A,pm);
-    bnu::lu_substitute(A, pm, Ainv); 
-    bnu::vector<double> x = prod(Ainv, b);
-    for (auto a: x)
-    {
-        x_->push_back(a);
-    }
- }
+}
+
 
 
 void make_value(std::vector <Point> K_nearest,
- std::vector <double> Values_k_nearest, Point Target, double *value)
+ std::vector <double> Values_k_nearest, Point Target, double &value)
 {
-
-}
-
-
-void test()
-{
-    
-
-    std::vector <double>b{1, -1}, tmp1{1, 0}, tmp2{0, -1};
-    std::vector <std::vector <double>> A;
-    A.push_back(tmp1);
-    A.push_back(tmp2);
-
-    std::vector <double> x;
-    solve_SLAE(A, b, &x);
-    std::cout << x[0] <<" "<<x[1]<<std::endl;
-
-
-    /*auto combinations = comb(5, 3);
-    for (auto a : combinations)
+    std::vector <Point> ksi;
+    double k_x, k_y; Point Center;
+    make_frame(K_nearest, k_x, k_y, Center);
+    for (auto P: K_nearest){ksi.push_back(Point((P.x - Center.x) / k_x, (P.y - Center.y) / k_y));}
+    //std::vector <Point> interpol_dots(6); std::vector <double> interpol_value(6);
+    std::vector <Point> interpol_dots(3); std::vector <double> interpol_value(3);
+    double max_determinant = 0; std::vector <unsigned int> max_comb;
+    //auto combinations = comb(K_nearest.size(), 6);
+    auto combinations = comb(K_nearest.size(), 3);
+    for (auto a: combinations)
     {
-        for (int i = 0; i < a.size(); i++)
+        //for (int i = 0; i < 6; i++) {interpol_dots[i] = ksi[a[i]];}
+        for (int i = 0; i < 3; i++) {interpol_dots[i] = ksi[a[i]];}
+        std::vector <double> b; std::vector <std::vector <double>> A;
+        make_A_b(interpol_dots, interpol_value, A, b);
+        MatrixXd engine_A; matrix2MatrixXd(A, engine_A);
+        if (engine_A.determinant() > max_determinant)
         {
-            std::cout << a[i] << " ";
+            max_determinant = engine_A.determinant();
+            max_comb = a;
+
         }
-        std::cout << std::endl;
-    }*/
+        if (engine_A.determinant() >= 1e-1){break;}
+    }
+    for (int i = 0; i < 3/*6*/; i++) 
+    {
+        interpol_dots[i] = ksi[max_comb[i]]; 
+        interpol_value[i] = Values_k_nearest[max_comb[i]];
+    }
+    std::vector <double> b; std::vector <std::vector <double>> A;
+    make_A_b(interpol_dots, interpol_value, A, b);
+    MatrixXd engine_A; matrix2MatrixXd(A, engine_A);
+    std::vector <double> coef;
+    solve_SLAE(A, b, coef);
+    Point ksiTarget = Point((Target.x - Center.x) / k_x, (Target.y - Center.y) / k_y);
+    /*value = coef[0] * pow(ksiTarget.x, 2) + coef[1] * pow(ksiTarget.y, 2)
+            + coef[2] * ksiTarget.x * ksiTarget.y + coef[3] * ksiTarget.x + 
+            coef[4] * ksiTarget.y + coef[5];*/
+    value = coef[0] * ksiTarget.x + coef[1] * ksiTarget.y + coef[2];
+            
+    sort(interpol_value.begin(), interpol_value.end());
+    if (value > interpol_value.back())
+    {
+        value = interpol_value.back();
+    } 
+    if (value < interpol_value[0])
+    {
+        value = interpol_value[0];
+    }
 }
+

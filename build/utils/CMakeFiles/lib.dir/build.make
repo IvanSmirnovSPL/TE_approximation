@@ -83,22 +83,9 @@ utils/CMakeFiles/lib.dir/make_grid.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lib.dir/make_grid.cpp.s"
 	cd /home/ivan/TE_approximation/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ivan/TE_approximation/utils/make_grid.cpp -o CMakeFiles/lib.dir/make_grid.cpp.s
 
-utils/CMakeFiles/lib.dir/test_boost.cpp.o: utils/CMakeFiles/lib.dir/flags.make
-utils/CMakeFiles/lib.dir/test_boost.cpp.o: ../utils/test_boost.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ivan/TE_approximation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object utils/CMakeFiles/lib.dir/test_boost.cpp.o"
-	cd /home/ivan/TE_approximation/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lib.dir/test_boost.cpp.o -c /home/ivan/TE_approximation/utils/test_boost.cpp
-
-utils/CMakeFiles/lib.dir/test_boost.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lib.dir/test_boost.cpp.i"
-	cd /home/ivan/TE_approximation/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ivan/TE_approximation/utils/test_boost.cpp > CMakeFiles/lib.dir/test_boost.cpp.i
-
-utils/CMakeFiles/lib.dir/test_boost.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lib.dir/test_boost.cpp.s"
-	cd /home/ivan/TE_approximation/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ivan/TE_approximation/utils/test_boost.cpp -o CMakeFiles/lib.dir/test_boost.cpp.s
-
 utils/CMakeFiles/lib.dir/initial_conditions.cpp.o: utils/CMakeFiles/lib.dir/flags.make
 utils/CMakeFiles/lib.dir/initial_conditions.cpp.o: ../utils/initial_conditions.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ivan/TE_approximation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object utils/CMakeFiles/lib.dir/initial_conditions.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ivan/TE_approximation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object utils/CMakeFiles/lib.dir/initial_conditions.cpp.o"
 	cd /home/ivan/TE_approximation/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lib.dir/initial_conditions.cpp.o -c /home/ivan/TE_approximation/utils/initial_conditions.cpp
 
 utils/CMakeFiles/lib.dir/initial_conditions.cpp.i: cmake_force
@@ -111,7 +98,7 @@ utils/CMakeFiles/lib.dir/initial_conditions.cpp.s: cmake_force
 
 utils/CMakeFiles/lib.dir/calculate.cpp.o: utils/CMakeFiles/lib.dir/flags.make
 utils/CMakeFiles/lib.dir/calculate.cpp.o: ../utils/calculate.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ivan/TE_approximation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object utils/CMakeFiles/lib.dir/calculate.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ivan/TE_approximation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object utils/CMakeFiles/lib.dir/calculate.cpp.o"
 	cd /home/ivan/TE_approximation/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lib.dir/calculate.cpp.o -c /home/ivan/TE_approximation/utils/calculate.cpp
 
 utils/CMakeFiles/lib.dir/calculate.cpp.i: cmake_force
@@ -124,7 +111,7 @@ utils/CMakeFiles/lib.dir/calculate.cpp.s: cmake_force
 
 utils/CMakeFiles/lib.dir/approximation.cpp.o: utils/CMakeFiles/lib.dir/flags.make
 utils/CMakeFiles/lib.dir/approximation.cpp.o: ../utils/approximation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ivan/TE_approximation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object utils/CMakeFiles/lib.dir/approximation.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ivan/TE_approximation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object utils/CMakeFiles/lib.dir/approximation.cpp.o"
 	cd /home/ivan/TE_approximation/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lib.dir/approximation.cpp.o -c /home/ivan/TE_approximation/utils/approximation.cpp
 
 utils/CMakeFiles/lib.dir/approximation.cpp.i: cmake_force
@@ -139,7 +126,6 @@ utils/CMakeFiles/lib.dir/approximation.cpp.s: cmake_force
 lib_OBJECTS = \
 "CMakeFiles/lib.dir/utils.cpp.o" \
 "CMakeFiles/lib.dir/make_grid.cpp.o" \
-"CMakeFiles/lib.dir/test_boost.cpp.o" \
 "CMakeFiles/lib.dir/initial_conditions.cpp.o" \
 "CMakeFiles/lib.dir/calculate.cpp.o" \
 "CMakeFiles/lib.dir/approximation.cpp.o"
@@ -149,13 +135,12 @@ lib_EXTERNAL_OBJECTS =
 
 utils/liblib.a: utils/CMakeFiles/lib.dir/utils.cpp.o
 utils/liblib.a: utils/CMakeFiles/lib.dir/make_grid.cpp.o
-utils/liblib.a: utils/CMakeFiles/lib.dir/test_boost.cpp.o
 utils/liblib.a: utils/CMakeFiles/lib.dir/initial_conditions.cpp.o
 utils/liblib.a: utils/CMakeFiles/lib.dir/calculate.cpp.o
 utils/liblib.a: utils/CMakeFiles/lib.dir/approximation.cpp.o
 utils/liblib.a: utils/CMakeFiles/lib.dir/build.make
 utils/liblib.a: utils/CMakeFiles/lib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ivan/TE_approximation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX static library liblib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ivan/TE_approximation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX static library liblib.a"
 	cd /home/ivan/TE_approximation/build/utils && $(CMAKE_COMMAND) -P CMakeFiles/lib.dir/cmake_clean_target.cmake
 	cd /home/ivan/TE_approximation/build/utils && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/lib.dir/link.txt --verbose=$(VERBOSE)
 
