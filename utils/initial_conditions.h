@@ -7,9 +7,10 @@
 #include <string>
 #include <iostream>
 
+#define order 1
+
 double wave(Point p);
 double cone(Point p);
-
 
 double (*get(std::string name))(Point p);
 

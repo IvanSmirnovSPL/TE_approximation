@@ -3,6 +3,7 @@
 
 utils/CMakeFiles/lib.dir/approximation.cpp.o: ../utils/approximation.cpp
 utils/CMakeFiles/lib.dir/approximation.cpp.o: ../utils/approximation.h
+utils/CMakeFiles/lib.dir/approximation.cpp.o: ../utils/initial_conditions.h
 utils/CMakeFiles/lib.dir/approximation.cpp.o: ../utils/utils.h
 
 utils/CMakeFiles/lib.dir/calculate.cpp.o: ../utils/approximation.h

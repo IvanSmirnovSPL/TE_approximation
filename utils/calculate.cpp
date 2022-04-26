@@ -45,7 +45,8 @@ void make_values(KDTree kdtree, std::vector <Point> grid,
             boundary_conditions(&Target);
             std::vector <Point> K_nearest; 
             std::vector <double> Values_k_nearest;
-            kdtree.find_k_nearest(Target, 10, &K_nearest);
+            int approx_num = order == 1 ? 6 : 10;
+            kdtree.find_k_nearest(Target, approx_num, &K_nearest);
             for (auto P: K_nearest){Values_k_nearest.push_back(time_lay_prev[Point2string(P)]);}
             double value;
             //value = time_lay->at(Point2string(P));
