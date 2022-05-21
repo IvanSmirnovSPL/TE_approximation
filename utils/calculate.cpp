@@ -1,10 +1,14 @@
 #include <vector>
-#include "utils.h"
 #include <iostream>
 #include <map>
+#include <filesystem>
+#include <functional>
+
+#include "utils.h"
 #include "make_vtu.h"
 #include "initial_conditions.h"
 #include "approximation.h"
+#include "calculate.h"
 
 class KDTree
 {
@@ -27,11 +31,9 @@ class KDTree
 };
 
 void make_values(KDTree kdtree, std::vector <Point> grid,
- double(*F)(Point), double tau, double lamb_x, double lamb_y,
+ std::function<double(Point)> F_initial, double tau, double lamb_x, double lamb_y,
   std::map <std::string, double> &time_lay)
 {
-    double (*F_initial)(Point) = NULL;
-    F_initial = F; /*get F(x, y) function*/
     
     std::map <std::string, double> time_lay_prev, time_lay_cur;
     time_lay_prev = time_lay;
@@ -58,13 +60,11 @@ void make_values(KDTree kdtree, std::vector <Point> grid,
     time_lay = time_lay_cur;
 }
 
-void calculate_grid(double(*F)(Point), std::vector <Point> grid,
- double lamb_x, double lamb_y, double Time, int N, std::string name)
+void calculate_grid(std::function<double(Point)> F_initial, std::vector <Point> grid,
+ double lamb_x, double lamb_y, double Time, int N, std::filesystem::path name)
  {
     KDTree kdtree(grid); /*make k-distance tree*/
-    double (*F_initial)(Point) = NULL;
-    F_initial = F; /*get F(x, y) function*/
-    
+
     double tau;
     calculate_tau(Time, N, &tau);
 
@@ -75,8 +75,10 @@ void calculate_grid(double(*F)(Point), std::vector <Point> grid,
         {
             for(auto P: grid){time_lay[Point2string(P)] = F_initial(P);}
         }
-        make_values(kdtree, grid, F, tau, lamb_x, lamb_y, time_lay);
-        save_vtu(name + "state_" + std::to_string(n) + ".vtu", grid, time_lay);
+        make_values(kdtree, grid, F_initial, tau, lamb_x, lamb_y, time_lay);
+        std::string vtk_filename = "state_" + std::to_string(n) + ".vtk";
+        std::filesystem::path vtk_file_path = name / vtk_filename;
+        save_vtu(vtk_file_path, grid, time_lay);
     }
     
  }

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.0)
-set(CMAKE_CXX_FLAGS "-std=c++17")
+set(CMAKE_CXX_FLAGS "-std=c++20")
 project(TE VERSION 0.1.0)
 
 find_package(VTK COMPONENTS 

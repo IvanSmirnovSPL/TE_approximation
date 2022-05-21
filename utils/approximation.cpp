@@ -1,14 +1,13 @@
-#include "approximation.h"
-#include "utils.h"
-#include "initial_conditions.h"
-
-
-// to store queries results
 #include <vector>
-
-
 #include <algorithm>
 #include <string>
+
+#include "utils.h"
+#include "initial_conditions.h"
+#include "approximation.h"
+
+
+
 
 
 

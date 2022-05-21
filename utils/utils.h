@@ -5,14 +5,12 @@
 #include <boost/geometry.hpp>
 #include <boost/geometry/geometries/point.hpp>
 #include <boost/geometry/index/rtree.hpp>
-#include "boost/numeric/ublas/matrix.hpp"
-#include "boost/numeric/ublas/vector.hpp"
+
 #include <eigen3/Eigen/Dense>
  
 using Eigen::MatrixXd;
 using Eigen::VectorXd;
 
-namespace bnu = boost::numeric::ublas;
 
 namespace bg = boost::geometry;
 namespace bgi = boost::geometry::index;

@@ -2,10 +2,11 @@
 
 #define INITIAL_CONDITIONS_H
 
-#include "utils.h"
 #include <cmath>
 #include <string>
 #include <iostream>
+
+#include "utils.h"
 
 #define order 1
 

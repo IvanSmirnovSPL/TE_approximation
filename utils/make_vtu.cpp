@@ -1,35 +1,21 @@
-#include "make_vtu.h"
-#include "utils.h"
-
-#include "vtkActor.h"
-#include <vtkCellArray.h>
-#include <vtkDataSetMapper.h>
-#include <vtkNamedColors.h>
-#include <vtkNew.h>
-#include <vtkPointData.h>
-#include <vtkProperty.h>
-#include <vtkRenderWindow.h>
-#include <vtkRenderWindowInteractor.h>
-#include <vtkRenderer.h>
-#include <vtkTetra.h>
-#include <vtkUnstructuredGrid.h>
-#include <vtkVertexGlyphFilter.h>
-#include <vtkXMLUnstructuredGridReader.h>
-#include <vtkXMLUnstructuredGridWriter.h>
-
 #include <iostream>
 #include <cmath>
 #include <vector>
+#include <filesystem>
 
-#include <vtkDoubleArray.h>
-#include <vtkPoints.h>
+#include <vtkCellArray.h>
+#include <vtkNew.h>
 #include <vtkPointData.h>
-#include <vtkXMLStructuredGridWriter.h>
-#include <vtkStructuredGrid.h>
+#include <vtkUnstructuredGrid.h>
+#include <vtkXMLUnstructuredGridWriter.h>
+#include <vtkPoints.h>
 #include <vtkSmartPointer.h>
 
+#include "utils.h"
+#include "make_vtu.h"
 
-void save_vtu(std::string filename, std::vector<Point> Points,
+
+void save_vtu(std::filesystem::path filename, std::vector<Point> Points,
  std::map <std::string, double> values)
 {
   

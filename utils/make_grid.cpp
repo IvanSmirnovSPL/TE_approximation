@@ -1,9 +1,10 @@
-#include "make_grid.h"
-
-#include "gmsh.h"
 #include <vector>
 #include <string>
 #include <iostream>
+
+#include "gmsh.h"
+#include "make_grid.h"
+
 
 void get_grid(std::string name, double scale, std::vector <Point>& rez)
 {
