@@ -15,8 +15,8 @@
 #include "make_vtu.h"
 
 
-void save_vtu(std::filesystem::path filename, std::vector<Point> Points,
- std::map <std::string, double> values)
+void save_vtu(std::filesystem::path filename, const std::vector<Point>& Points,
+ const std::map <std::string, double>& values)
 {
   
   vtkSmartPointer<vtkUnstructuredGrid> UnstructuredGrid = vtkSmartPointer<vtkUnstructuredGrid>::New();
@@ -34,10 +34,9 @@ void save_vtu(std::filesystem::path filename, std::vector<Point> Points,
   vel->SetName("velocity");
   vel->SetNumberOfComponents(3);*/
 
-  unsigned int number = (unsigned int)Points.size();
-  for(unsigned int i = 0; i < number; i++) {
+  for(unsigned int i = 0; i < Points.size(); ++i) {
     // Вставляем новую точку в сетку VTK-снапшота
-    dumpPoints->InsertNextPoint(Points[i].x, Points[i].y, values[Point2string(Points[i])]);
+    dumpPoints->InsertNextPoint(Points[i].x, Points[i].y, values.at(Point2string(Points[i])));
 
     vtkIdType pid[1];
     pid[0] = i;

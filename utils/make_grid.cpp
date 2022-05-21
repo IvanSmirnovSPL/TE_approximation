@@ -6,7 +6,7 @@
 #include "make_grid.h"
 
 
-void get_grid(std::string name, double scale, std::vector <Point>& rez)
+std::vector <Point> get_grid(std::string name, double scale)
 {
   gmsh::initialize();
   gmsh::model::add(name);
@@ -31,16 +31,17 @@ void get_grid(std::string name, double scale, std::vector <Point>& rez)
   gmsh::model::mesh::generate(2);
   gmsh::write(name + ".msh");
 
-  std::vector <std::size_t> nodeTags; std::vector <double> coord, parametricCoord;
+  std::vector <std::size_t> nodeTags; 
+  std::vector <double> coord, parametricCoord;
 
   gmsh::model::mesh::getNodes(nodeTags, coord, parametricCoord, -1, -1, false, true);
 
   gmsh::finalize();
-   
-  for (int i = 0; i < nodeTags.size(); i++)
+
+  std::vector <Point> rez; 
+  for (int i = 0; i < nodeTags.size(); ++i)
   {
       rez.push_back(Point(coord[i * 3], coord[i * 3 + 1]));
-      //std::cout<< coord[i * 3]<<" "<< coord[i * 3 + 1]<<" "<<coord[i * 3 + 2]<<std::endl;
   }
-
+  return rez;
 }

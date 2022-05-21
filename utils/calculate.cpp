@@ -32,7 +32,7 @@ class KDTree
 
 void make_values(KDTree kdtree, std::vector <Point> grid,
  std::function<double(Point)> F_initial, double tau, double lamb_x, double lamb_y,
-  std::map <std::string, double> &time_lay)
+  std::map <std::string, double> &time_lay, int order)
 {
     
     std::map <std::string, double> time_lay_prev, time_lay_cur;
@@ -44,7 +44,7 @@ void make_values(KDTree kdtree, std::vector <Point> grid,
         {
             Point Target = j == 0 ? Point(P.x - lamb_x * tau, P.y)
              : Point(P.x, P.y - lamb_y * tau);
-            boundary_conditions(&Target);
+            Target = boundary_conditions(Target);
             std::vector <Point> K_nearest; 
             std::vector <double> Values_k_nearest;
             int approx_num = order == 1 ? 6 : 10;
@@ -52,7 +52,7 @@ void make_values(KDTree kdtree, std::vector <Point> grid,
             for (auto P: K_nearest){Values_k_nearest.push_back(time_lay_prev[Point2string(P)]);}
             double value;
             //value = time_lay->at(Point2string(P));
-            make_value(K_nearest, Values_k_nearest, Target, value);
+            make_value(K_nearest, Values_k_nearest, Target, value, order);
             time_lay_cur[Point2string(P)] = value;
         }
         time_lay_prev = time_lay_cur;
@@ -60,13 +60,12 @@ void make_values(KDTree kdtree, std::vector <Point> grid,
     time_lay = time_lay_cur;
 }
 
-void calculate_grid(std::function<double(Point)> F_initial, std::vector <Point> grid,
- double lamb_x, double lamb_y, double Time, int N, std::filesystem::path name)
+void calculate_grid(std::function<double(Point)> F_initial, const std::vector <Point>& grid,
+ double lamb_x, double lamb_y, double Time, int N, int order, std::filesystem::path name)
  {
     KDTree kdtree(grid); /*make k-distance tree*/
 
-    double tau;
-    calculate_tau(Time, N, &tau);
+    double tau = calculate_tau(Time, N);
 
     std::map <std::string, double> time_lay;
     for (int n = 0; n < N; n++)
@@ -75,7 +74,7 @@ void calculate_grid(std::function<double(Point)> F_initial, std::vector <Point> 
         {
             for(auto P: grid){time_lay[Point2string(P)] = F_initial(P);}
         }
-        make_values(kdtree, grid, F_initial, tau, lamb_x, lamb_y, time_lay);
+        make_values(kdtree, grid, F_initial, tau, lamb_x, lamb_y, time_lay, order);
         std::string vtk_filename = "state_" + std::to_string(n) + ".vtk";
         std::filesystem::path vtk_file_path = name / vtk_filename;
         save_vtu(vtk_file_path, grid, time_lay);

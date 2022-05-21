@@ -1,6 +1,4 @@
-#ifndef MAKE_VTU_H
-
-#define MAKE_VTU_H
+#pragma once
 
 #include <string>
 #include <vector>
@@ -9,7 +7,5 @@
 
 #include "utils.h"
 
-void save_vtu(std::filesystem::path filename, std::vector<Point> Points,
- std::map <std::string, double> values);
-
-#endif
+void save_vtu(std::filesystem::path filename, const std::vector<Point>& Points,
+  const std::map <std::string, double>& values);

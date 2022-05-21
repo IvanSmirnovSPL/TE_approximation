@@ -1,6 +1,4 @@
-#ifndef MAKE_GRID_H
-
-#define MAKE_GRID_H
+#pragma once
 
 #include <vector>
 #include <string>
@@ -18,6 +16,6 @@
  * - rez -- vector of 2D points
  * 
  * */
-void get_grid(std::string name, double scale, std::vector <Point>& rez);
+std::vector <Point> get_grid(std::string name, double scale);
 
-#endif //MAKE_GRID_H
+

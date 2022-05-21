@@ -1,9 +1,7 @@
-#ifndef APPROXIMATION_H
+#pragma once
 
-#define APPROXIMATION_H
 #include "utils.h"
 #include <vector>
 
-void make_value(std::vector <Point> K_nearest, std::vector <double> Values_k_nearest, Point Target, double &value);
-
-#endif //APPROXIMATION_H
+void make_value(const std::vector <Point>& K_nearest, const std::vector <double>&  Values_k_nearest, 
+Point Target, double &value, int order);

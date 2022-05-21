@@ -27,23 +27,19 @@ std::string Point2string(Point P)
     return std::to_string(P.x) + " " + std::to_string(P.y);
 }
 
-void calculate_tau(double Time, int N, double *tau)
+double calculate_tau(double Time, int N)
 {
     if (N > 1)
-    {
-        *tau = Time / (N - 1);
-    }
+        return Time / (N - 1);
     else
-    {
-         *tau = 0.;
-    }
+         return 0.;
 }
 
 
 void vector2VectorXd(std::vector <double> v, VectorXd &V)
 {
     V.resize(v.size());
-    for (int i = 0; i < v.size(); i++)
+    for (int i = 0; i < v.size(); ++i)
     {
         V(i) = v[i];
     }
@@ -52,7 +48,7 @@ void vector2VectorXd(std::vector <double> v, VectorXd &V)
 void VectorXd2vector(VectorXd V, std::vector <double> &v)
 {
     v.resize(V.size());
-    for (int i = 0; i < V.size(); i++)
+    for (int i = 0; i < V.size(); ++i)
     {
         v[i] = V(i);
     }
@@ -62,9 +58,9 @@ void VectorXd2vector(VectorXd V, std::vector <double> &v)
 void matrix2MatrixXd(std::vector<std::vector <double>> m, MatrixXd &M)
 {
     M.resize(m.size(), m.size());
-    for (int i = 0; i < m.size(); i++)
+    for (int i = 0; i < m.size(); ++i)
     {
-        for (int j = 0; j < m.size(); j++)
+        for (int j = 0; j < m.size(); ++j)
         {
             M(i, j) = m[i][j];
         }
@@ -74,10 +70,10 @@ void matrix2MatrixXd(std::vector<std::vector <double>> m, MatrixXd &M)
 void MatrixXd2matrix(MatrixXd &M, std::vector<std::vector <double>> &m)
 {
     m.resize(M.rows()); auto cols = M.cols();
-    for (int i = 0; i < M.rows(); i++)
+    for (int i = 0; i < M.rows(); ++i)
     {
         m[i].resize(cols);
-        for (int j = 0; j < M.cols(); j++)
+        for (int j = 0; j < M.cols(); ++j)
         {
             m[i][j] = M(i, j);
         }

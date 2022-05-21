@@ -1,11 +1,14 @@
+#include <functional>
+
 #include "initial_conditions.h"
+
 
 double wave (Point p)
     {
         double rez = 0;
         if (sqrt(pow(p.x, 2) + pow(p.y, 2)) < 1)
         {
-            rez =  pow(cos(sqrt(pow(p.x, 2) + pow(p.y, 2)) * 0.5 * M_PI), 2);
+            rez =  pow(cos(sqrt(pow(p.x, 2) + pow(p.y, 2)) *  std::numbers::pi / 2), 2);
         }
         return rez;
     }
@@ -15,17 +18,22 @@ double cone (Point p)
         double rez = 0;
         if (sqrt(pow(p.x, 2) + pow(p.y, 2)) < 1)
         {
-            rez =  pow(cos(sqrt(pow(p.x, 2) + pow(p.y, 2)) * 0.5 * M_PI), 2);
+            rez =  pow(cos(sqrt(pow(p.x, 2) + pow(p.y, 2)) *  std::numbers::pi / 2), 2);
         }
         return rez;
     }
 
-double (*get(std::string name))(Point p)
+
+
+std::function<double(Point)> get(std::string name)
 {
     if (name == "wave")
     {
-        return &wave;
+        return wave;
     }
+
+    return wave;
+
 }
 
 int sign(double x)
@@ -33,19 +41,21 @@ int sign(double x)
     return x >= 0 ? 1 : -1;
 }
 
-void boundary_conditions(Point *P)
+
+Point boundary_conditions(Point P)
 {
     double T = 2;
-    P->x = P->x - sign(P->x) * int((fabs(P->x) / T)) * T;
-    if (fabs(P->x) > 1)
+    P.x = P.x - sign(P.x) * int((std::abs(P.x) / T)) * T;
+    if (std::abs(P.x) > 1)
     {
-        P->x -= sign(P->x) * T;
+        P.x -= sign(P.x) * T;
     }
 
-    P->y = P->y - sign(P->y) * int((fabs(P->y) / T)) * T;
-    if (fabs(P->y) > 1)
+    P.y = P.y - sign(P.y) * int((std::abs(P.y) / T)) * T;
+    if (std::abs(P.y) > 1)
     {
-        P->y -= sign(P->y) * T;
+        P.y -= sign(P.y) * T;
     }
-
+    
+    return P;
 }

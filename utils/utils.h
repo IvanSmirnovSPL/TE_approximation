@@ -1,6 +1,4 @@
-#ifndef UTILS_H
-
-#define UTILS_H
+#pragma once
 
 #include <boost/geometry.hpp>
 #include <boost/geometry/geometries/point.hpp>
@@ -14,22 +12,16 @@ using Eigen::VectorXd;
 
 namespace bg = boost::geometry;
 namespace bgi = boost::geometry::index;
-typedef bg::model::point<float, 2, bg::cs::cartesian> point;
+using point = bg::model::point<float, 2, bg::cs::cartesian>;
 
-class Point
+struct Point
 {
-    public:
-    
-    double x, y;
-    Point (): x(0.0), y(0.0)
-	{
-	}
-
-	Point(double x, double y ): x(x), y(y)
-	{
-	}
-
+    double x = 0;
+	double y = 0;
+	Point(double x, double y): x(x), y(y) {}
+	Point(): x(0), y(0) {}
 };
+
 
 Point point2Point(point p);
 
@@ -39,13 +31,9 @@ std::string Point2string(Point P);
 
 std::string point2string(point P);
 
-void calculate_tau(double Time, int N, double *tau);
+double calculate_tau(double Time, int N);
 
 void vector2VectorXd(std::vector <double> v, VectorXd &V);
 void VectorXd2vector(VectorXd V, std::vector <double> &v);
 void matrix2MatrixXd(std::vector<std::vector <double>> m, MatrixXd &M);
 void MatrixXd2matrix(MatrixXd &M, std::vector<std::vector <double>> &m);
- 
-
-
-#endif //UTILS_H
